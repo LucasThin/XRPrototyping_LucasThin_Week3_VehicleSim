@@ -31,6 +31,8 @@ public class Hoverboard : MonoBehaviour
     {
         _hoverboard.SetActive(false);
         _hoverBoardActivate.action.performed += ActivateHoverBoard;
+
+        
     }
 
     private void ActivateHoverBoard(InputAction.CallbackContext obj)
