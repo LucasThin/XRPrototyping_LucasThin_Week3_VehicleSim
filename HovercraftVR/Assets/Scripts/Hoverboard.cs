@@ -9,6 +9,24 @@ public class Hoverboard : MonoBehaviour
     [SerializeField] private GameObject _hoverboard;
     [SerializeField] private InputActionReference _hoverBoardActivate;
     
+    //Save skating poses
+    [SerializeField] private Transform _back;
+    [SerializeField] private Transform _leftFoot;
+    [SerializeField] private Transform _leftShin;
+    [SerializeField] private Transform _leftThigh;
+    [SerializeField] private Transform _rightFoot;
+    [SerializeField] private Transform _rightShin;
+    [SerializeField] private Transform _rightThigh;
+    
+    //Stand Pose
+    [SerializeField] private Transform _Sback;
+    [SerializeField] private Transform _SleftFoot;
+    [SerializeField] private Transform _SleftShin;
+    [SerializeField] private Transform _SleftThigh;
+    [SerializeField] private Transform _SrightFoot;
+    [SerializeField] private Transform _SrightShin;
+    [SerializeField] private Transform _SrightThigh;
+    
     void Start()
     {
         _hoverboard.SetActive(false);
