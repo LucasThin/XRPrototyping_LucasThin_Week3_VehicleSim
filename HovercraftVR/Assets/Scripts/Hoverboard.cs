@@ -42,12 +42,25 @@ public class Hoverboard : MonoBehaviour
     private void ActivateHoverBoard(InputAction.CallbackContext obj)
     {
         Debug.Log("Activate HoverBoard");
-        _hoverboard.SetActive(true);
 
-        for (int i = 0; i < 7; i++)
+        if (_hoverboard.activeSelf)
         {
-            _bones[i].rotation = _skatePose[i].rotation;
+            _hoverboard.SetActive(false);
+            for (int i = 0; i < 7; i++)
+            {
+                _bones[i].rotation = _standPose[i].rotation;
+            }
+            
         }
+        else
+        {
+            _hoverboard.SetActive(true);
+            for (int i = 0; i < 7; i++)
+            {
+                _bones[i].rotation = _skatePose[i].rotation;
+            }
+        }
+
     }
 
     // Update is called once per frame

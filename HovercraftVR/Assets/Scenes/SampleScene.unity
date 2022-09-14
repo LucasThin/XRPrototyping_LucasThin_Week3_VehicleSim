@@ -3789,13 +3789,13 @@ MonoBehaviour:
   - {fileID: 882622061}
   - {fileID: 882622062}
   _standPose:
-  - {fileID: 2164711772705718393}
-  - {fileID: 2164711772705718337}
-  - {fileID: 2164711772705718336}
-  - {fileID: 2164711772705718335}
-  - {fileID: 2164711772705718332}
-  - {fileID: 2164711772705718331}
-  - {fileID: 2164711772705718330}
+  - {fileID: 638330453}
+  - {fileID: 638330460}
+  - {fileID: 638330461}
+  - {fileID: 638330462}
+  - {fileID: 638330455}
+  - {fileID: 638330456}
+  - {fileID: 638330457}
 --- !u!1 &1904166338
 GameObject:
   m_ObjectHideFlags: 0
