@@ -1098,6 +1098,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "RotateLeftRight",
+                    "type": "Value",
+                    "id": "f16fa26e-723f-417f-bb54-aeb063087c01",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1109,6 +1118,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MoveUpDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de4cbeed-fac1-4c7a-8a92-01ded095f4d4",
+                    "path": "<OculusTouchController>/thumbstick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateLeftRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

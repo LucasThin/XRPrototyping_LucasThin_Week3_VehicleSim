@@ -14,13 +14,14 @@ public class Hoverboard : MonoBehaviour
     [SerializeField] private GameObject _Avatar;
     [SerializeField] private InputActionReference _hoverBoardActivate;
     [SerializeField] private InputActionReference _HoverUpDown;
+    [SerializeField] private InputActionReference _RotateLeftRight;
     [SerializeField] private ActionBasedContinuousMoveProvider _XROriginMove;
     [SerializeField] private ActionBasedContinuousTurnProvider _XROriginTurn;
 
     [SerializeField] private Transform[] _bones = new Transform[7];
     [SerializeField] private Transform[] _skatePose = new Transform[7];
     [SerializeField] private Transform[] _standPose = new Transform[7];
-
+    [SerializeField] private float turnSpeed = 250;
     private Vector3 _Ground;
 
     private bool _hoverboardState = false;
@@ -29,7 +30,27 @@ public class Hoverboard : MonoBehaviour
         _hoverboard.SetActive(false);
         _hoverBoardActivate.action.performed += ActivateHoverBoard;
         _HoverUpDown.action.performed += UpDown;
+        _RotateLeftRight.action.performed += LeftRight;
 
+    }
+
+    private void LeftRight(InputAction.CallbackContext obj)
+    {
+        float val = obj.ReadValue<float>();
+        
+        if (_hoverboardState)
+        {
+            if (val > 0.05)
+            {
+                
+                _XROrigin.transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed);
+                _Avatar.transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed);
+            } else if (val < -0.05)
+            {
+                _XROrigin.transform.Rotate(Vector3.up * Time.deltaTime * -turnSpeed);
+                _Avatar.transform.Rotate(Vector3.up * Time.deltaTime * -turnSpeed);
+            }
+        }
     }
 
     private void UpDown(InputAction.CallbackContext obj)
@@ -40,12 +61,12 @@ public class Hoverboard : MonoBehaviour
         {
             if (val > 0.95)
             {
-                _XROrigin.transform.Translate(Vector3.up * Time.deltaTime, Space.World);
-                _Avatar.transform.Translate(Vector3.up * Time.deltaTime, Space.World);
+                _XROrigin.transform.Translate(Vector3.up * Time.deltaTime * 10, Space.World);
+                _Avatar.transform.Translate(Vector3.up * Time.deltaTime * 10, Space.World);
             } else if (val < -0.95)
             {
-                _XROrigin.transform.Translate(Vector3.down * Time.deltaTime, Space.World);
-                _Avatar.transform.Translate(Vector3.down * Time.deltaTime, Space.World);
+                _XROrigin.transform.Translate(Vector3.down * Time.deltaTime * 10, Space.World);
+                _Avatar.transform.Translate(Vector3.down * Time.deltaTime * 10, Space.World);
             }
         }
         
@@ -85,13 +106,13 @@ public class Hoverboard : MonoBehaviour
     {
         if (_hoverboardState)
         {
-            _XROriginTurn.enabled = false;
+            //_XROriginTurn.enabled = false;
             _XROriginMove.forwardSource = _forwardSource;
         } 
         
         else if (!_hoverboardState) 
         {
-            _XROriginTurn.enabled = true;
+            //_XROriginTurn.enabled = true;
             _XROriginMove.forwardSource = _mainCamera;
             
             
