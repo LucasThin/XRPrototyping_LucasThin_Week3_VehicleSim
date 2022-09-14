@@ -3772,20 +3772,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hoverboard: {fileID: 919132147889198603}
   _hoverBoardActivate: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _back: {fileID: 882622058}
-  _leftFoot: {fileID: 882622067}
-  _leftShin: {fileID: 882622066}
-  _leftThigh: {fileID: 882622065}
-  _rightFoot: {fileID: 882622062}
-  _rightShin: {fileID: 882622061}
-  _rightThigh: {fileID: 882622060}
-  _Sback: {fileID: 638330453}
-  _SleftFoot: {fileID: 638330462}
-  _SleftShin: {fileID: 638330461}
-  _SleftThigh: {fileID: 638330460}
-  _SrightFoot: {fileID: 638330457}
-  _SrightShin: {fileID: 638330456}
-  _SrightThigh: {fileID: 638330455}
+  _bones:
+  - {fileID: 2164711772705718393}
+  - {fileID: 2164711772705718337}
+  - {fileID: 2164711772705718336}
+  - {fileID: 2164711772705718335}
+  - {fileID: 2164711772705718332}
+  - {fileID: 2164711772705718331}
+  - {fileID: 2164711772705718330}
+  _skatePose:
+  - {fileID: 882622058}
+  - {fileID: 882622065}
+  - {fileID: 882622066}
+  - {fileID: 882622067}
+  - {fileID: 882622060}
+  - {fileID: 882622061}
+  - {fileID: 882622062}
+  _standPose:
+  - {fileID: 2164711772705718393}
+  - {fileID: 2164711772705718337}
+  - {fileID: 2164711772705718336}
+  - {fileID: 2164711772705718335}
+  - {fileID: 2164711772705718332}
+  - {fileID: 2164711772705718331}
+  - {fileID: 2164711772705718330}
 --- !u!1 &1904166338
 GameObject:
   m_ObjectHideFlags: 0
@@ -4070,7 +4080,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986290849011582}
   m_LocalRotation: {x: 0.001884588, y: -0.0003438592, z: -0.0006191167, w: 0.99999803}
-  m_LocalPosition: {x: -2.995106, y: -1.0615141, z: -6.4632215}
+  m_LocalPosition: {x: -2.994, y: -0.412, z: -6.461}
   m_LocalScale: {x: 5.4761, y: 5.4761, z: 5.4761}
   m_Children: []
   m_Father: {fileID: 4527368225819680}
