@@ -22,6 +22,11 @@ public class Hoverboard : MonoBehaviour
     [SerializeField] private Transform[] _skatePose = new Transform[7];
     [SerializeField] private Transform[] _standPose = new Transform[7];
     [SerializeField] private float turnSpeed = 250;
+
+    [SerializeField] private AudioSource _successSound;
+    [SerializeField] private AudioSource _HoverSound;
+    [SerializeField] private AudioSource _hoverActivateSound;
+    
     private Vector3 _Ground;
 
     private bool _hoverboardState = false;
