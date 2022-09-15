@@ -23,7 +23,7 @@ public class Hoverboard : MonoBehaviour
     [SerializeField] private Transform[] _standPose = new Transform[7];
     [SerializeField] private float turnSpeed = 250;
 
-    [SerializeField] private AudioSource _successSound;
+  
     [SerializeField] private AudioSource _HoverSound;
     [SerializeField] private AudioSource _hoverActivateSound;
     
@@ -45,15 +45,17 @@ public class Hoverboard : MonoBehaviour
         
         if (_hoverboardState)
         {
-            if (val > 0.05)
+            if (val > 0.55)
             {
                 
                 _XROrigin.transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed);
                 _Avatar.transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed);
-            } else if (val < -0.05)
+                _HoverSound.Play();
+            } else if (val < -0.55)
             {
                 _XROrigin.transform.Rotate(Vector3.up * Time.deltaTime * -turnSpeed);
                 _Avatar.transform.Rotate(Vector3.up * Time.deltaTime * -turnSpeed);
+                _HoverSound.Play();
             }
         }
     }
@@ -66,12 +68,14 @@ public class Hoverboard : MonoBehaviour
         {
             if (val > 0.95)
             {
-                _XROrigin.transform.Translate(Vector3.up * Time.deltaTime * 10, Space.World);
-                _Avatar.transform.Translate(Vector3.up * Time.deltaTime * 10, Space.World);
+                _XROrigin.transform.Translate(Vector3.up * Time.deltaTime * 2, Space.World);
+                _Avatar.transform.Translate(Vector3.up * Time.deltaTime * 2, Space.World);
+                _HoverSound.Play();
             } else if (val < -0.95)
             {
-                _XROrigin.transform.Translate(Vector3.down * Time.deltaTime * 10, Space.World);
-                _Avatar.transform.Translate(Vector3.down * Time.deltaTime * 10, Space.World);
+                _XROrigin.transform.Translate(Vector3.down * Time.deltaTime * 2, Space.World);
+                _Avatar.transform.Translate(Vector3.down * Time.deltaTime * 2, Space.World);
+                _HoverSound.Play();
             }
         }
         
@@ -96,6 +100,7 @@ public class Hoverboard : MonoBehaviour
         else
         {
             _hoverboard.SetActive(true);
+            _hoverActivateSound.PlayOneShot(_hoverActivateSound.clip);
             for (int i = 0; i < 7; i++)
             {
                 _bones[i].rotation = _skatePose[i].rotation;
